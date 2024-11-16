@@ -1,8 +1,9 @@
 ﻿using TechNovaLab.Irrigo.Domain.Entities.Crops;
+using TechNovaLab.Irrigo.SharedKernel.Core;
 
 namespace TechNovaLab.Irrigo.Domain.Entities.Planters
 {
-    public sealed class Planter
+    public sealed class Planter : EntityBase
     {
         public int Id { get; set; }
         public Guid PublicId { get; set; }

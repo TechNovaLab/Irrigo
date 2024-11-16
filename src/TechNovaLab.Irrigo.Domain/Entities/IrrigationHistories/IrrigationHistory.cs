@@ -1,8 +1,9 @@
 ﻿using TechNovaLab.Irrigo.Domain.Entities.Sprinklers;
+using TechNovaLab.Irrigo.SharedKernel.Core;
 
 namespace TechNovaLab.Irrigo.Domain.Entities.IrrigationHistories
 {
-    public sealed class IrrigationHistory
+    public sealed class IrrigationHistory : EntityBase
     {
         public int Id { get; set; }
         public Guid PublicId { get; set; }

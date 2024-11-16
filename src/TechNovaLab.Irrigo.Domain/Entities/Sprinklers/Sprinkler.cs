@@ -1,6 +1,8 @@
-﻿namespace TechNovaLab.Irrigo.Domain.Entities.Sprinklers
+﻿using TechNovaLab.Irrigo.SharedKernel.Core;
+
+namespace TechNovaLab.Irrigo.Domain.Entities.Sprinklers
 {
-    public sealed class Sprinkler
+    public sealed class Sprinkler : EntityBase
     {
         public int Id { get; set; }
         public Guid PublicId { get; set; }

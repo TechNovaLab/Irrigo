@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using TechNovaLab.Irrigo.Domain.Entities.Planters;
 using TechNovaLab.Irrigo.Domain.Entities.Sprinklers;
+using TechNovaLab.Irrigo.SharedKernel.Core;
 
 namespace TechNovaLab.Irrigo.Domain.Entities.Crops
 {
-    public sealed class Crop
+    public sealed class Crop : EntityBase
     {
         public int Id { get; set; }
         public Guid PublicId { get; set; }

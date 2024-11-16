@@ -1,6 +1,8 @@
-﻿namespace TechNovaLab.Irrigo.Domain.Entities.Crops
+﻿using TechNovaLab.Irrigo.SharedKernel.Core;
+
+namespace TechNovaLab.Irrigo.Domain.Entities.Crops
 {
-    public sealed class CropType
+    public sealed class CropType : EntityBase
     {
         public int Id { get; set; }
         public Guid PublicId { get; set; }

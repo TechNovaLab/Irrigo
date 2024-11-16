@@ -2,10 +2,11 @@
 using TechNovaLab.Irrigo.Domain.Entities.Crops;
 using TechNovaLab.Irrigo.Domain.Entities.IrrigationHistories;
 using TechNovaLab.Irrigo.Domain.Entities.IrrigationSchedules;
+using TechNovaLab.Irrigo.SharedKernel.Core;
 
 namespace TechNovaLab.Irrigo.Domain.Entities.Sprinklers
 {
-    public sealed class SprinklerGroup
+    public sealed class SprinklerGroup : EntityBase
     {
         public int Id { get; set; }
         public Guid PublicId { get; set; }

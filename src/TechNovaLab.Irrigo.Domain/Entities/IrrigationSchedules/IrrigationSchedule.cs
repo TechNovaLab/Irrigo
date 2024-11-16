@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using TechNovaLab.Irrigo.Domain.Entities.Sprinklers;
+using TechNovaLab.Irrigo.SharedKernel.Core;
 
 namespace TechNovaLab.Irrigo.Domain.Entities.IrrigationSchedules
 {
-    public sealed class IrrigationSchedule
+    public sealed class IrrigationSchedule : EntityBase
     {
         public int Id { get; set; }
         public Guid PublicId { get; set; }

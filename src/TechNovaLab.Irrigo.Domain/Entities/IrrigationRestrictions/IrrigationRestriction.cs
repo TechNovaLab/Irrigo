@@ -1,6 +1,8 @@
-﻿namespace TechNovaLab.Irrigo.Domain.Entities.IrrigationRestrictions
+﻿using TechNovaLab.Irrigo.SharedKernel.Core;
+
+namespace TechNovaLab.Irrigo.Domain.Entities.IrrigationRestrictions
 {
-    public sealed class IrrigationRestriction
+    public sealed class IrrigationRestriction : EntityBase
     {
         public int Id { get; set; }
         public Guid PublicId { get; set; }
