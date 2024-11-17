@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TechNovaLab.Irrigo.SharedKernel\TechNovaLab.Irrigo.SharedKernel.csproj" />
   </ItemGroup>
 

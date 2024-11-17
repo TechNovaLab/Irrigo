@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A18EE2EB-49E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechNovaLab.Irrigo.SharedKernel", "src\TechNovaLab.Irrigo.SharedKernel\TechNovaLab.Irrigo.SharedKernel.csproj", "{F0C55489-B6E6-42A5-8979-388F1B67EDD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechNovaLab.Irrigo.Application", "src\TechNovaLab.Irrigo.Application\TechNovaLab.Irrigo.Application.csproj", "{AF0100D9-9437-4BD3-BCD6-B331F128AE4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechNovaLab.Irrigo.Infrastructure", "src\TechNovaLab.Irrigo.Infrastructure\TechNovaLab.Irrigo.Infrastructure.csproj", "{5D8A489D-86EA-4C58-A58C-0D8D71FECDC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,14 @@ Global
 		{F0C55489-B6E6-42A5-8979-388F1B67EDD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0C55489-B6E6-42A5-8979-388F1B67EDD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0C55489-B6E6-42A5-8979-388F1B67EDD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF0100D9-9437-4BD3-BCD6-B331F128AE4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF0100D9-9437-4BD3-BCD6-B331F128AE4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF0100D9-9437-4BD3-BCD6-B331F128AE4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF0100D9-9437-4BD3-BCD6-B331F128AE4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D8A489D-86EA-4C58-A58C-0D8D71FECDC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D8A489D-86EA-4C58-A58C-0D8D71FECDC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D8A489D-86EA-4C58-A58C-0D8D71FECDC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D8A489D-86EA-4C58-A58C-0D8D71FECDC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +42,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E8DF395E-4B83-4E18-9591-E8172293044D} = {A18EE2EB-49E8-4051-9E7A-D7E3FC6AF9A0}
 		{F0C55489-B6E6-42A5-8979-388F1B67EDD7} = {A18EE2EB-49E8-4051-9E7A-D7E3FC6AF9A0}
+		{AF0100D9-9437-4BD3-BCD6-B331F128AE4B} = {A18EE2EB-49E8-4051-9E7A-D7E3FC6AF9A0}
+		{5D8A489D-86EA-4C58-A58C-0D8D71FECDC3} = {A18EE2EB-49E8-4051-9E7A-D7E3FC6AF9A0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1637759F-1D80-4E04-8541-BDCA4070BFFF}

@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
+    <Folder Include="Features\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TechNovaLab.Irrigo.Domain\TechNovaLab.Irrigo.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

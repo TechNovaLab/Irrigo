@@ -6,6 +6,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Builders
     public abstract class EntityConfigurator<TEntity> : IEntityConfigurator where TEntity : EntityBase
     {
         public IEnumerable<TEntity> InitialData { get; set; } = default!;
+
         public virtual bool ApplySeed { get; set; }
 
         protected EntityConfigurator()
