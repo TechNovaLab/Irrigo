@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechNovaLab.Irrigo.Applicat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechNovaLab.Irrigo.Infrastructure", "src\TechNovaLab.Irrigo.Infrastructure\TechNovaLab.Irrigo.Infrastructure.csproj", "{5D8A489D-86EA-4C58-A58C-0D8D71FECDC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechNovaLab.Irrigo.Api", "src\TechNovaLab.Irrigo.Api\TechNovaLab.Irrigo.Api.csproj", "{813F1D41-0815-404A-BDF7-DC47FE63B110}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{5D8A489D-86EA-4C58-A58C-0D8D71FECDC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D8A489D-86EA-4C58-A58C-0D8D71FECDC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D8A489D-86EA-4C58-A58C-0D8D71FECDC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{813F1D41-0815-404A-BDF7-DC47FE63B110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{813F1D41-0815-404A-BDF7-DC47FE63B110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{813F1D41-0815-404A-BDF7-DC47FE63B110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{813F1D41-0815-404A-BDF7-DC47FE63B110}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{F0C55489-B6E6-42A5-8979-388F1B67EDD7} = {A18EE2EB-49E8-4051-9E7A-D7E3FC6AF9A0}
 		{AF0100D9-9437-4BD3-BCD6-B331F128AE4B} = {A18EE2EB-49E8-4051-9E7A-D7E3FC6AF9A0}
 		{5D8A489D-86EA-4C58-A58C-0D8D71FECDC3} = {A18EE2EB-49E8-4051-9E7A-D7E3FC6AF9A0}
+		{813F1D41-0815-404A-BDF7-DC47FE63B110} = {A18EE2EB-49E8-4051-9E7A-D7E3FC6AF9A0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1637759F-1D80-4E04-8541-BDCA4070BFFF}
