@@ -1,25 +1,26 @@
-﻿using TechNovaLab.Irrigo.SharedKernel.Abstractions.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using TechNovaLab.Irrigo.Application.Abstractions.Data;
 using TechNovaLab.Irrigo.SharedKernel.Core;
 
-namespace TechNovaLab.Irrigo.Infrastructure.Database.Builders
+namespace TechNovaLab.Irrigo.Infrastructure.Database.Abstractions
 {
-    public abstract class EntityConfigurator<TEntity> : IEntityConfigurator where TEntity : EntityBase
+    public abstract class EntityConfiguratorBase<TEntity> : IEntityConfigurator where TEntity : EntityBase
     {
         public IEnumerable<TEntity> InitialData { get; set; } = default!;
 
         public virtual bool ApplySeed { get; set; }
 
-        protected EntityConfigurator()
+        protected EntityConfiguratorBase()
         {
             ApplySeed = false;
         }
 
-        public virtual void Configure(IModelBuilder modelBuilder)
+        public virtual void Configure(ModelBuilder modelBuilder)
         {
 
         }
 
-        public virtual void Seed(IModelBuilder modelBuilder)
+        public virtual void Seed(ModelBuilder modelBuilder)
         {
             if (ApplySeed && InitialData != null && InitialData.Any())
             {
@@ -27,5 +28,4 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Builders
             }
         }
     }
-
 }
