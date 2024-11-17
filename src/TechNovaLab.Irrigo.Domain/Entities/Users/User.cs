@@ -1,6 +1,8 @@
-﻿namespace TechNovaLab.Irrigo.Domain.Entities.Users
+﻿using TechNovaLab.Irrigo.SharedKernel.Core;
+
+namespace TechNovaLab.Irrigo.Domain.Entities.Users
 {
-    public sealed class User
+    public sealed class User : EntityBase
     {
         public Guid Id { get; set; }
         public required string Email { get; set; }

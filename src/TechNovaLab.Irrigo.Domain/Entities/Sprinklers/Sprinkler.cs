@@ -8,7 +8,7 @@ namespace TechNovaLab.Irrigo.Domain.Entities.Sprinklers
         public Guid PublicId { get; set; }
         public int? SprinklerGroupId { get; set; }
         public required string Name { get; set; }
-        public double IrrigationCapacity { get; set; }
+        public double IrrigationCapacityPerMinute { get; set; }
         public SprinklerGroup? SprinklerGroup { get; set; } = default!;
     }
 }

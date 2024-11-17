@@ -39,7 +39,7 @@ namespace TechNovaLab.Irrigo.Domain.Entities.Sprinklers
             {
                 if (Sprinklers.Count != 0)
                 {
-                    var capacity = Sprinklers.Sum(x => x.IrrigationCapacity);
+                    var capacity = Sprinklers.Sum(x => x.IrrigationCapacityPerMinute);
                     return WaterConsumptionPerSession / capacity;
                 }
 

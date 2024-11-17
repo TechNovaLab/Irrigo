@@ -8,6 +8,7 @@ using TechNovaLab.Irrigo.Domain.Entities.Planters;
 using TechNovaLab.Irrigo.Domain.Entities.Sprinklers;
 using TechNovaLab.Irrigo.Domain.Entities.Users;
 using TechNovaLab.Irrigo.Infrastructure.Database.Abstractions;
+using TechNovaLab.Irrigo.Infrastructure.Database.Configurators;
 
 namespace TechNovaLab.Irrigo.Infrastructure.Database.Contexts
 {
@@ -25,7 +26,9 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyModelConfiguration();
             modelBuilder.HasDefaultSchema(Schemas.Default);
+
             base.OnModelCreating(modelBuilder);
         }
     }
