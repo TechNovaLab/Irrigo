@@ -402,3 +402,6 @@ FodyWeavers.xsd
 !.vscode/launch.json
 !.vscode/tasks.json
 .vscode/settings.json
+
+# Database migrations
+Migrations/
