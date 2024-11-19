@@ -5,7 +5,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Abstractions
 {
     public abstract class RepositoryBase(DbContextBase context) : IRepositoryBase //<DbContextBase>
     {
-        public DbContextBase Context => context ?? throw new NotImplementedException();
+        public DbContextBase Context => context ?? throw new ArgumentNullException(nameof(context));
 
         public async Task<TEntity?> FindAsync<TEntity, TKey>(TKey id, CancellationToken cancellationToken = default)
            where TEntity : EntityBase

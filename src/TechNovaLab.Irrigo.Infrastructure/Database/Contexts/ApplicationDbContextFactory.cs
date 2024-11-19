@@ -12,7 +12,10 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Contexts
             optionBuilder.UseSqlServer(connectionString,
                 sqlOptions =>
                 {
-                    sqlOptions.EnableRetryOnFailure(maxRetryCount: 15, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
+                    sqlOptions.EnableRetryOnFailure(
+                        maxRetryCount: 5, 
+                        maxRetryDelay: TimeSpan.FromSeconds(10), 
+                        errorNumbersToAdd: null);
                 });
 
             return new ApplicationDbContext(optionBuilder.Options);
