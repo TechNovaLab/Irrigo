@@ -5,6 +5,7 @@ using TechNovaLab.Irrigo.Application.Abstractions.Data;
 using TechNovaLab.Irrigo.Domain.Repositories;
 using TechNovaLab.Irrigo.Infrastructure.Database.Contexts;
 using TechNovaLab.Irrigo.Infrastructure.Database.Repositories;
+using TechNovaLab.Irrigo.Infrastructure.HealthChecks;
 using TechNovaLab.Irrigo.Infrastructure.Providers;
 using TechNovaLab.Irrigo.SharedKernel.Providers;
 
@@ -16,7 +17,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Configurations
             => services
                 .AddServices()
                 .AddDatabase(configuration)
-                .AddHealthChecks()
+                .AddInternalHealthChecks()
                 .AddAuthentication(configuration)
                 .AddAuthorization(configuration);
 
@@ -40,9 +41,11 @@ namespace TechNovaLab.Irrigo.Infrastructure.Configurations
             return services;
         }
 
-        private static IServiceCollection AddHealthChecks(this IServiceCollection services)
+        private static IServiceCollection AddInternalHealthChecks(this IServiceCollection services)
         {
-            services.AddHealthChecks();
+            services
+                .AddHealthChecks()
+                .AddCheck<DatabaseHealthCheck>("Database");
             
             return services;
         }
