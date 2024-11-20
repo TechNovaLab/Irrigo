@@ -2,5 +2,6 @@
 {
     public static class Tags
     {
+        public const string HealthChecks = "HealthChecks";
     }
 }
