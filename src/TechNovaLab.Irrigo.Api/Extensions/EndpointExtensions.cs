@@ -1,4 +1,5 @@
 ﻿using TechNovaLab.Irrigo.Api.Endpoints.Interfaces;
+using TechNovaLab.Irrigo.Domain.Entities.Users;
 
 namespace TechNovaLab.Irrigo.Api.Extensions
 {
@@ -21,5 +22,11 @@ namespace TechNovaLab.Irrigo.Api.Extensions
 
             return app;
         }
+
+        public static RouteHandlerBuilder HasRole(this RouteHandlerBuilder app, Role role) =>
+            app.RequireAuthorization(policy => policy.RequireRole(role.ToString()));
+
+        public static RouteHandlerBuilder HasPermission(this RouteHandlerBuilder app, string permission) =>
+            app.RequireAuthorization(permission);
     }
 }
