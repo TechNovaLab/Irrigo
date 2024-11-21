@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
+using TechNovaLab.Irrigo.Application.Abstractions.Behaviors;
 
 namespace TechNovaLab.Irrigo.Application.Configurations
 {
@@ -10,8 +11,8 @@ namespace TechNovaLab.Irrigo.Application.Configurations
             services.AddMediatR(config =>
             {
                 config.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
-
-                // (!) next configure open behaviors
+                config.AddOpenBehavior(typeof(RequestLoggingPipelineBehavior<,>));
+                config.AddOpenBehavior(typeof(ValidationPipelineBehavior<,>));
             });
 
             services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly, includeInternalTypes: true);
