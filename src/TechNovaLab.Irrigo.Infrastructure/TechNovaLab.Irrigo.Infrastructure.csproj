@@ -17,4 +17,8 @@
     <ProjectReference Include="..\TechNovaLab.Irrigo.Application\TechNovaLab.Irrigo.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Security\Authorization\" />
+  </ItemGroup>
+
 </Project>
