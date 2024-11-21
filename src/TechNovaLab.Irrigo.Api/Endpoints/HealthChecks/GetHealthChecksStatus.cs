@@ -11,6 +11,7 @@ namespace TechNovaLab.Irrigo.Api.Endpoints.HealthChecks
             {
                 return true;
             })
+            .AllowAnonymous()
             .WithTags(Tags.HealthChecks);
         }
     }

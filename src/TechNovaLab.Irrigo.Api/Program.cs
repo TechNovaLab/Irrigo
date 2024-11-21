@@ -15,7 +15,6 @@ builder.Services
 
 WebApplication app = builder.Build();
 
-app.MapOpenApi();
 app.MapEndpoints(app.MapGroup("/api"));
 
 if (app.Environment.IsDevelopment())
