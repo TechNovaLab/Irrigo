@@ -7,12 +7,16 @@ WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-
 # Esta fase se usa para compilar el proyecto de servicio
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["src/TechNovaLab.Irrigo.Api/TechNovaLab.Irrigo.Api.csproj", "src/TechNovaLab.Irrigo.Api/"]
+COPY ["Directory.Build.props", "."]
+COPY ["src/TechNovaLab.Irrigo.Api.csproj", "src/TechNovaLab.Irrigo.Api/"]
+COPY ["src/TechNovaLab.Irrigo.Infrastructure.csproj", "src/TechNovaLab.Irrigo.Infrastructure/"]
+COPY ["src/TechNovaLab.Irrigo.Application.csproj", "src/TechNovaLab.Irrigo.Application/"]
+COPY ["src/TechNovaLab.Irrigo.Domain.csproj", "src/TechNovaLab.Irrigo.Domain/"]
+COPY ["src/TechNovaLab.Irrigo.SharedKernel.csproj", "src/TechNovaLab.SharedKernel.Api/"]
 RUN dotnet restore "./src/TechNovaLab.Irrigo.Api/TechNovaLab.Irrigo.Api.csproj"
 COPY . .
 WORKDIR "/src/src/TechNovaLab.Irrigo.Api"

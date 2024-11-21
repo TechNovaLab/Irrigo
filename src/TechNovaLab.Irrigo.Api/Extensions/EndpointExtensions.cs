@@ -1,4 +1,4 @@
-﻿using TechNovaLab.Irrigo.Api.Endpoints.Interfaces;
+﻿using TechNovaLab.Irrigo.Api.Endpoints;
 using TechNovaLab.Irrigo.Domain.Entities.Users;
 
 namespace TechNovaLab.Irrigo.Api.Extensions

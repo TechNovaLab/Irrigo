@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using TechNovaLab.Irrigo.Api.Endpoints.Interfaces;
 
 namespace TechNovaLab.Irrigo.Api.Endpoints.HealthChecks
 {

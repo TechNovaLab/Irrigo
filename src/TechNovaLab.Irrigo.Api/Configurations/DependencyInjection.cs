@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Reflection;
-using TechNovaLab.Irrigo.Api.Endpoints.Interfaces;
+using TechNovaLab.Irrigo.Api.Endpoints;
 using TechNovaLab.Irrigo.Api.Infrastructure;
 
 namespace TechNovaLab.Irrigo.Api.Configurations
