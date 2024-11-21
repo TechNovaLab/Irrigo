@@ -4,11 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using System.Security.Claims;
 using System.Text;
 using TechNovaLab.Irrigo.Application.Abstractions.Authentication;
 using TechNovaLab.Irrigo.Application.Abstractions.Data;
-using TechNovaLab.Irrigo.Domain.Entities.Users;
 using TechNovaLab.Irrigo.Domain.Repositories;
 using TechNovaLab.Irrigo.Infrastructure.Database.Contexts;
 using TechNovaLab.Irrigo.Infrastructure.Database.Repositories;
@@ -28,8 +26,8 @@ namespace TechNovaLab.Irrigo.Infrastructure.Configurations
                 .AddServices()
                 .AddDatabase(configuration)
                 .AddInternalHealthChecks()
-                .AddAuthentication(configuration)
-                .AddAuthorization(configuration);
+                .AddAuthenticationInternal(configuration)
+                .AddAuthorizationInternal();
 
         private static IServiceCollection AddServices(this IServiceCollection services)
             => services
@@ -61,7 +59,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Configurations
             return services;
         }
 
-        private static IServiceCollection AddAuthentication(this IServiceCollection services, IConfiguration configuration)
+        private static IServiceCollection AddAuthenticationInternal(this IServiceCollection services, IConfiguration configuration)
         {
             services
                 .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -88,7 +86,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Configurations
             return services;
         }
         
-        private static IServiceCollection AddAuthorization(this IServiceCollection services, IConfiguration configuration)
+        private static IServiceCollection AddAuthorizationInternal(this IServiceCollection services)
         {
             services.AddAuthorization();
             services.AddScoped<PermissionProvider>();

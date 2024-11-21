@@ -31,7 +31,7 @@ app.MapHealthChecks("health", new HealthCheckOptions
 app.UseRequestContextLogging();
 //app.UseSerilogRequestLogging();
 app.UseExceptionHandler();
-//app.UseAuthentication();
-//app.UseAuthorization();
+app.UseAuthentication();
+app.UseAuthorization();
 
 await app.RunAsync();
