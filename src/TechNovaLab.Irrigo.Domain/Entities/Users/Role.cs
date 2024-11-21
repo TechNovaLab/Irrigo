@@ -2,7 +2,12 @@
 {
     public enum Role
     {
-        Viewer = 0,
-        All,
+        Guest = 0,
+        Member,
+        Contributor,
+        Agent,
+        Owner,
+        Security,
+        Admin,
     }
 }

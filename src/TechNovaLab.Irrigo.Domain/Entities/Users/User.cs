@@ -9,6 +9,6 @@ namespace TechNovaLab.Irrigo.Domain.Entities.Users
         public required string FirstName { get; set; }
         public required string LastName { get; set; }
         public string PasswordHash { get; set; } = default!;
-        public Role Rol { get; set; }
+        public Role Role { get; set; }
     }
 }
