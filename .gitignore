@@ -405,3 +405,7 @@ FodyWeavers.xsd
 
 # Database migrations
 Migrations/
+
+# Docker Containers
+.containers/
+*.containers
