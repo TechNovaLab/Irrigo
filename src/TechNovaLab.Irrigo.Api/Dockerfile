@@ -11,12 +11,11 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Directory.Build.props", "."]
-COPY ["src/TechNovaLab.Irrigo.Api.csproj", "src/TechNovaLab.Irrigo.Api/"]
-COPY ["src/TechNovaLab.Irrigo.Infrastructure.csproj", "src/TechNovaLab.Irrigo.Infrastructure/"]
-COPY ["src/TechNovaLab.Irrigo.Application.csproj", "src/TechNovaLab.Irrigo.Application/"]
-COPY ["src/TechNovaLab.Irrigo.Domain.csproj", "src/TechNovaLab.Irrigo.Domain/"]
-COPY ["src/TechNovaLab.Irrigo.SharedKernel.csproj", "src/TechNovaLab.SharedKernel.Api/"]
+COPY ["src/TechNovaLab.Irrigo.Api/TechNovaLab.Irrigo.Api.csproj", "src/TechNovaLab.Irrigo.Api/"]
+COPY ["src/TechNovaLab.Irrigo.Infrastructure/TechNovaLab.Irrigo.Infrastructure.csproj", "src/TechNovaLab.Irrigo.Infrastructure/"]
+COPY ["src/TechNovaLab.Irrigo.Application/TechNovaLab.Irrigo.Application.csproj", "src/TechNovaLab.Irrigo.Application/"]
+COPY ["src/TechNovaLab.Irrigo.Domain/TechNovaLab.Irrigo.Domain.csproj", "src/TechNovaLab.Irrigo.Domain/"]
+COPY ["src/TechNovaLab.Irrigo.SharedKernel/TechNovaLab.Irrigo.SharedKernel.csproj", "src/TechNovaLab.Irrigo.SharedKernel/"]
 RUN dotnet restore "./src/TechNovaLab.Irrigo.Api/TechNovaLab.Irrigo.Api.csproj"
 COPY . .
 WORKDIR "/src/src/TechNovaLab.Irrigo.Api"
