@@ -8,11 +8,10 @@ namespace TechNovaLab.Irrigo.Api.Extensions
         public static void ApplyMigrations(this IApplicationBuilder app)
         {
             using IServiceScope scope = app.ApplicationServices.CreateScope();
+            using ApplicationDbContext dbContext = scope.ServiceProvider
+                .GetRequiredService<ApplicationDbContext>();
 
-            using ApplicationDbContext dbContext =
-                scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-
-            dbContext.Database.Migrate();
+            //dbContext.Database.Migrate();
         }
     }
 }

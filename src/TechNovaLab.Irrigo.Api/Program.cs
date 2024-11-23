@@ -1,11 +1,15 @@
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Serilog;
 using TechNovaLab.Irrigo.Api.Configurations;
 using TechNovaLab.Irrigo.Api.Extensions;
 using TechNovaLab.Irrigo.Application.Configurations;
 using TechNovaLab.Irrigo.Infrastructure.Configurations;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Host
+    .UseSerilog((context, loggerConfig) => loggerConfig.ReadFrom.Configuration(context.Configuration));
 
 builder.Services
     .AddSwaggerGenWithAuth(builder.Configuration)
@@ -20,7 +24,7 @@ app.MapEndpoints(app.MapGroup("/api"));
 if (app.Environment.IsDevelopment())
 {
     app.UseSwaggerWithUI();
-    //app.ApplyMigrations();
+    app.ApplyMigrations();
 }
 
 app.MapHealthChecks("health", new HealthCheckOptions
@@ -29,7 +33,7 @@ app.MapHealthChecks("health", new HealthCheckOptions
 });
 
 app.UseRequestContextLogging();
-//app.UseSerilogRequestLogging();
+app.UseSerilogRequestLogging();
 app.UseExceptionHandler();
 app.UseAuthentication();
 app.UseAuthorization();
