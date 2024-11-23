@@ -28,7 +28,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Contexts
         {
             modelBuilder.ApplyModelConfiguration();
             modelBuilder.HasDefaultSchema(Schemas.Default);
-
+            
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -11,7 +11,10 @@ namespace TechNovaLab.Irrigo.Api.Extensions
             using ApplicationDbContext dbContext = scope.ServiceProvider
                 .GetRequiredService<ApplicationDbContext>();
 
-            //dbContext.Database.Migrate();
+            if (dbContext.Database.GetPendingMigrations().Any())
+            {
+                dbContext.Database.Migrate();
+            }
         }
     }
 }

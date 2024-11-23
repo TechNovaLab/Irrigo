@@ -1,6 +1,7 @@
 services:
   technovalab.irrigo.api:
     environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER="1"
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
@@ -10,3 +11,7 @@ services:
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      - .:/app:rw,cached
+    depends_on:
+      - postgres
+      - seq

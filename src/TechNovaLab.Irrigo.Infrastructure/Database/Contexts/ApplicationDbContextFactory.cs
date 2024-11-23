@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using TechNovaLab.Irrigo.Infrastructure.Database.Conventions.Extensions;
 
 namespace TechNovaLab.Irrigo.Infrastructure.Database.Contexts
 {
@@ -7,16 +8,13 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Contexts
     {
         public ApplicationDbContext CreateDbContext(string[] args)
         {
-            string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=TechNovaLab.Irrigo.v1;Trusted_Connection=True;MultipleActiveResultSets=true";
+            string connectionString = "Host=localhost;Port=5432;Database=irrigo-db;Username=postgres;Password=postgres;Include Error Detail=true";
             var optionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-            optionBuilder.UseSqlServer(connectionString,
-                sqlOptions =>
-                {
-                    sqlOptions.EnableRetryOnFailure(
-                        maxRetryCount: 5, 
-                        maxRetryDelay: TimeSpan.FromSeconds(10), 
-                        errorNumbersToAdd: null);
-                });
+            
+            optionBuilder
+                .UseNpgsql(connectionString, sqlOptions => 
+                    sqlOptions.MigrationsAssembly(typeof(ApplicationDbContext).Assembly))
+                .UseSnakeCaseNamingConvention();
 
             return new ApplicationDbContext(optionBuilder.Options);
         }

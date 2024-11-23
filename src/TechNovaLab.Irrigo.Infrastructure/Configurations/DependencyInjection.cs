@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -9,6 +10,7 @@ using TechNovaLab.Irrigo.Application.Abstractions.Authentication;
 using TechNovaLab.Irrigo.Application.Abstractions.Data;
 using TechNovaLab.Irrigo.Domain.Repositories;
 using TechNovaLab.Irrigo.Infrastructure.Database.Contexts;
+using TechNovaLab.Irrigo.Infrastructure.Database.Conventions.Extensions;
 using TechNovaLab.Irrigo.Infrastructure.Database.Repositories;
 using TechNovaLab.Irrigo.Infrastructure.HealthChecks;
 using TechNovaLab.Irrigo.Infrastructure.Providers;
@@ -36,14 +38,12 @@ namespace TechNovaLab.Irrigo.Infrastructure.Configurations
         private static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
         {
             string? connectionString = configuration.GetConnectionString("Database");
-            services.AddDbContext<ApplicationDbContext>(options => 
-                options.UseSqlServer(connectionString, sqlOptions =>
-                    sqlOptions.EnableRetryOnFailure(
-                    maxRetryCount: 5,
-                    maxRetryDelay: TimeSpan.FromSeconds(10),
-                    errorNumbersToAdd: null)));
 
-            //services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<ApplicationDbContext>());
+            services.AddDbContext<ApplicationDbContext>(options => options
+               .UseNpgsql(connectionString, npgsqlOptions => npgsqlOptions.MigrationsHistoryTable(HistoryRepository.DefaultTableName, Schemas.Default))
+               .UseSnakeCaseNamingConvention());
+
+            services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<ApplicationDbContext>());
             services.AddScoped<IRepository, Repository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
