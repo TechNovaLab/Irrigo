@@ -1,12 +1,14 @@
-﻿using TechNovaLab.Irrigo.SharedKernel.Abstractions.Data;
+﻿using System.Linq.Expressions;
 using TechNovaLab.Irrigo.SharedKernel.Core;
 
 namespace TechNovaLab.Irrigo.SharedKernel.Abstractions.Repositories
 {
-    public interface IRepositoryBase //<IDatabaseContext>
+    public interface IRepositoryBase
     {
-        Task<TEntity?> FindAsync<TEntity, T>(T id, CancellationToken cancellationToken = default)
-            where TEntity : EntityBase
-            where T : struct;
+        ValueTask<TEntity> AddAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default)
+            where TEntity : EntityBase;
+
+        IQueryable<TEntity> Get<TEntity>(Expression<Func<TEntity, bool>>? predicateExpression = null)
+            where TEntity : EntityBase;
     }
 }

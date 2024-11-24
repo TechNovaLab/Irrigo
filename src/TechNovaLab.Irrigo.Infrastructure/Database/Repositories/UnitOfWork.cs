@@ -21,7 +21,13 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Repositories
             => await transaction.RollbackAsync(cancellationToken);
 
         public async Task<int> CompleteAsync(CancellationToken cancellation = default)
-            => await context.SaveChangesAsync(cancellation);
+        {
+            var result = await context.SaveChangesAsync(cancellation);
+
+            await PublishDomainEventsAsync();
+
+            return result;
+        }
 
         public async Task<bool> CreateExecutionStrategyAsync(Func<Task> operation, CancellationToken cancellationToken = default)
         {
