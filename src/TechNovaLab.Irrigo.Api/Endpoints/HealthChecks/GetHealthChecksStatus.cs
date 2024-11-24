@@ -4,9 +4,9 @@ namespace TechNovaLab.Irrigo.Api.Endpoints.HealthChecks
 {
     internal sealed class GetHealthChecksStatus : IEndpoint
     {
-        public void MapEndpoint(IEndpointRouteBuilder routeBuilder)
+        public void MapEndpoint(IEndpointRouteBuilder app)
         {            
-            routeBuilder.MapGet("/health/status", async (ISender sender, CancellationToken cancellatioToken) =>
+            app.MapGet("/health/status", async (ISender sender, CancellationToken cancellatioToken) =>
             {
                 return true;
             })
