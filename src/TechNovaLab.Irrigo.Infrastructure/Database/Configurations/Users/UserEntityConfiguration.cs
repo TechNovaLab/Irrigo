@@ -12,10 +12,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Configurations.Users
             {
                 entity.ToTable("Users");
                 entity.HasKey(pk => pk.Id);
-
-                entity
-                    .Property(x => x.Id)
-                    .ValueGeneratedOnAdd();
+                entity.Property(x => x.Id);
             });
 
             base.Configure(modelBuilder);
