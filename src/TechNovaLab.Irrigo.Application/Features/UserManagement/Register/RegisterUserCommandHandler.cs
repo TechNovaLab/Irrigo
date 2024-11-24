@@ -15,11 +15,11 @@ namespace TechNovaLab.Irrigo.Application.Features.UserManagement.Register
         IUnitOfWork unitOfWork,
         IPasswordHasher passwordHasher) : ICommandHandler<RegisterUserCommand, Guid>
     {
-        public async Task<Result<Guid>> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
+        public async Task<Result<Guid>> Handle(RegisterUserCommand command, CancellationToken cancellationToken)
         {
             var anyUser = await repository
                 .Get<User>()
-                .AnyAsync(x => x.Email == request.Email, cancellationToken);
+                .AnyAsync(x => x.Email == command.Email, cancellationToken);
 
             if (anyUser)
             {
@@ -29,11 +29,11 @@ namespace TechNovaLab.Irrigo.Application.Features.UserManagement.Register
             var user = new User
             {
                 Id = Guid.NewGuid(),
-                Email = request.Email,
-                FirstName = request.FirstName,
-                LastName = request.LastName,
+                Email = command.Email,
+                FirstName = command.FirstName,
+                LastName = command.LastName,
                 Role = Role.Member,
-                PasswordHash = passwordHasher.Hash(request.Password)
+                PasswordHash = passwordHasher.Hash(command.Password)
             };
 
             user.Raise(new UserRegisteredDomainEvent(user.Id));

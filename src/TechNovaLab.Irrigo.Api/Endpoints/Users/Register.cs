@@ -26,7 +26,6 @@ namespace TechNovaLab.Irrigo.Api.Endpoints.Users
             })
             .AllowAnonymous()
             .WithTags(Tags.Users);
-
         }
     }
 }

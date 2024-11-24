@@ -21,7 +21,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Security.Authentication
                 [
                     new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
                     new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                    new Claim(ClaimTypes.Role, user.Role.ToString()),
+                    new Claim("role", user.Role.ToString()),
                 ]),
                 Expires = DateTime.UtcNow.AddMinutes(configuration.GetValue<int>("Jwt:ExpirationInMinutes")),
                 SigningCredentials = credentials,
