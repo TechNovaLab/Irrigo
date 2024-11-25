@@ -4,7 +4,6 @@
     <VersionSuffix>dev</VersionSuffix>
     <Company>TechNovaLab</Company>
     <Authors>Luis Rodriguez</Authors>
-    <AssemblyName>Irrigo-Api</AssemblyName>
     <TargetFramework>net9.0</TargetFramework>
   </PropertyGroup>
 </Project>
