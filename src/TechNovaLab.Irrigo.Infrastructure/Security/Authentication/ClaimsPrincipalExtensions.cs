@@ -6,8 +6,8 @@ namespace TechNovaLab.Irrigo.Infrastructure.Security.Authentication
     public static partial class ClaimsPrincipalExtensions
     {
         public static Guid GetUserId(this ClaimsPrincipal? claimsPrincipal)
-        {
-            string? userId = claimsPrincipal?.FindFirstValue(JwtRegisteredClaimNames.Sub);
+        { 
+            string? userId = claimsPrincipal?.FindFirstValue(ClaimTypes.NameIdentifier);
 
             return Guid.TryParse(userId, out Guid parsedUserId) 
                 ? parsedUserId 

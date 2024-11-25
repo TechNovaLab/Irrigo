@@ -15,8 +15,9 @@ namespace TechNovaLab.Irrigo.Infrastructure.Security.Authorization
             if (context.User is not { Identity.IsAuthenticated: true } or { Identity.IsAuthenticated: false })
             {
                 // TODO: Eliminar esta llamada cuando se implemente PermissionProvider.GetForUserIdAsync
-                context.Succeed(requirement);
-                //context.Fail(new AuthorizationFailureReason(this, "User is not authenticated."));
+                //context.Succeed(requirement);
+
+                context.Fail(new AuthorizationFailureReason(this, "User is not authenticated."));
 
                 return;
             }

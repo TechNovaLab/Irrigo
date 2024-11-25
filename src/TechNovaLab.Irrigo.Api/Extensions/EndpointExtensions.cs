@@ -24,8 +24,8 @@ namespace TechNovaLab.Irrigo.Api.Extensions
         }
 
         public static RouteHandlerBuilder HasRole(this RouteHandlerBuilder app, Role role) =>
-            app.RequireAuthorization(policy => policy.RequireRole(role.ToString()));
-
+            app.RequireAuthorization(role.ToString());
+            
         public static RouteHandlerBuilder HasPermission(this RouteHandlerBuilder app, string permission) =>
             app.RequireAuthorization(permission);
     }
