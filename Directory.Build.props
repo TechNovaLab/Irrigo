@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <VersionSuffix>rc.1</VersionSuffix>
+    <Company>TechNovaLab</Company>
+    <Authors>Luis Rodriguez</Authors>
+    <AssemblyName>Irrigo-Api</AssemblyName>
+    <TargetFramework>net9.0</TargetFramework>
+  </PropertyGroup>
+</Project>

@@ -9,6 +9,8 @@
     <DockerfileContext>..\..</DockerfileContext>
     <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <Authors>$(Authors)</Authors>
+    <Company>$(Company)</Company>
   </PropertyGroup>
 
   <ItemGroup>
