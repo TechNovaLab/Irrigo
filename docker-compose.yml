@@ -1,0 +1,44 @@
+services:
+  technovalab.irrigo.api:
+    image: ${DOCKER_REGISTRY-}irrigo-api
+    container_name: web-api
+    build:
+      context: .
+      dockerfile: src/TechNovaLab.Irrigo.Api/Dockerfile
+    ports:
+      - 5000:8080
+      - 5001:8081
+    networks:
+      - app-network
+  
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=irrigo-db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - app-network
+
+  seq:
+    image: datalust/seq:latest
+    container_name: seq
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - 8081:80
+    networks:
+      - app-network
+  
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres-data:

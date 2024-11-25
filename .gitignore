@@ -396,3 +396,16 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Visual Studio Code
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+.vscode/settings.json
+
+# Database migrations
+Migrations/
+
+# Docker Containers
+.containers/
+*.containers
