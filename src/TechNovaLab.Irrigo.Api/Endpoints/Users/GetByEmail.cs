@@ -20,7 +20,7 @@ namespace TechNovaLab.Irrigo.Api.Endpoints.Users
                 return result.Match(Results.Ok, CustomResults.Problem);
             })
             .HasRole(Role.Member)
-            .HasPermission("users:read/write")
+            .HasPermission("users:access")
             .WithTags(Tags.Users);
         }
     }
