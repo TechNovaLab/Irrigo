@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using TechNovaLab.Irrigo.Api.Extensions;
 using TechNovaLab.Irrigo.Api.Infrastructure;
-using TechNovaLab.Irrigo.Application.Features.CropsManagement.CreateCropType;
+using TechNovaLab.Irrigo.Application.Features.CropManagement.CreateCropType;
 using TechNovaLab.Irrigo.SharedKernel.Core;
 
 namespace TechNovaLab.Irrigo.Api.Endpoints.Crops

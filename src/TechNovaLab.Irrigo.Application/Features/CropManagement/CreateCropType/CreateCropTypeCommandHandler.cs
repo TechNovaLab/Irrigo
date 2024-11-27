@@ -6,7 +6,7 @@ using TechNovaLab.Irrigo.Domain.Errors;
 using TechNovaLab.Irrigo.Domain.Repositories;
 using TechNovaLab.Irrigo.SharedKernel.Core;
 
-namespace TechNovaLab.Irrigo.Application.Features.CropsManagement.CreateCropType
+namespace TechNovaLab.Irrigo.Application.Features.CropManagement.CreateCropType
 {
     internal sealed class CreateCropTypeCommandHandler(
         IRepository repository,

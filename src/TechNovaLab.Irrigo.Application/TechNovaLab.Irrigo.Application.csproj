@@ -22,4 +22,8 @@
     <ProjectReference Include="..\TechNovaLab.Irrigo.Domain\TechNovaLab.Irrigo.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\PlanterManagement\" />
+  </ItemGroup>
+
 </Project>
