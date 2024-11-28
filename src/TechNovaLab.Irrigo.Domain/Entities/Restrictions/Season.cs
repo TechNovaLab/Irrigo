@@ -1,4 +1,4 @@
-﻿namespace TechNovaLab.Irrigo.Domain.Entities.IrrigationRestrictions
+﻿namespace TechNovaLab.Irrigo.Domain.Entities.Restrictions
 {
     public enum Season
     {
