@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using TechNovaLab.Irrigo.Domain.Entities.Crops;
 using TechNovaLab.Irrigo.Domain.Entities.IrrigationHistories;
-using TechNovaLab.Irrigo.Domain.Entities.IrrigationSchedules;
+using TechNovaLab.Irrigo.Domain.Entities.Schedules;
 using TechNovaLab.Irrigo.SharedKernel.Core;
 
 namespace TechNovaLab.Irrigo.Domain.Entities.Sprinklers
@@ -18,9 +18,9 @@ namespace TechNovaLab.Irrigo.Domain.Entities.Sprinklers
             get
             {
                 if (Crops.Any(c => c.SprinklerGroupId == Id) && 
-                    IrrigationSchedules.Any(x => x.SprinklerGroupId == Id))
+                    Schedules.Any(x => x.SprinklerGroupId == Id))
                 {
-                    var irrigationSession = IrrigationSchedules.Count;
+                    var irrigationSession = Schedules.Count;
                     var waterConsumption = Crops
                         .First(c => c.SprinklerGroupId == Id)
                         .DailyWaterConsumption;
@@ -49,7 +49,7 @@ namespace TechNovaLab.Irrigo.Domain.Entities.Sprinklers
 
         public ICollection<Crop> Crops { get; set; } = [];
         public ICollection<Sprinkler> Sprinklers { get; set; } = [];
-        public ICollection<IrrigationSchedule> IrrigationSchedules { get; set; } = [];
+        public ICollection<Schedule> Schedules { get; set; } = [];
         public ICollection<IrrigationHistory> IrrigationHistories { get; set; } = [];
     }
 }

@@ -3,7 +3,7 @@ using TechNovaLab.Irrigo.Domain.Errors;
 
 namespace TechNovaLab.Irrigo.Application.Features.CropManagement.CreateCrop
 {
-    public class CreateCropCommandValidator : AbstractValidator<CreateCropCommand>
+    internal sealed class CreateCropCommandValidator : AbstractValidator<CreateCropCommand>
     {
         public CreateCropCommandValidator()
         {
