@@ -32,7 +32,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Configurations.Sprinklers
                     .OnDelete(DeleteBehavior.Restrict);
 
                 entity
-                    .HasMany(x => x.IrrigationSchedules)
+                    .HasMany(x => x.Schedules)
                     .WithOne(x => x.SprinklerGroup)
                     .HasForeignKey(fk => fk.SprinklerGroupId)
                     .OnDelete(DeleteBehavior.Restrict);

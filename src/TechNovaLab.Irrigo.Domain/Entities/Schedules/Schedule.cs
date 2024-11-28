@@ -2,17 +2,17 @@
 using TechNovaLab.Irrigo.Domain.Entities.Sprinklers;
 using TechNovaLab.Irrigo.SharedKernel.Core;
 
-namespace TechNovaLab.Irrigo.Domain.Entities.IrrigationSchedules
+namespace TechNovaLab.Irrigo.Domain.Entities.Schedules
 {
-    public sealed class IrrigationSchedule : EntityBase
+    public sealed class Schedule : EntityBase
     {
         public int Id { get; set; }
         public Guid PublicId { get; set; }
-        public int SprinklerGroupId { get; set; }        
+        public int SprinklerGroupId { get; set; }
         public TimeSpan StartTime { get; set; }
         public bool IsActive { get; set; } = true;
         public string? Notes { get; set; }
-        
+
         [NotMapped]
         public TimeSpan EndTime
         {
@@ -20,7 +20,7 @@ namespace TechNovaLab.Irrigo.Domain.Entities.IrrigationSchedules
             {
                 if (SprinklerGroup?.ActiveMinutesPerSession > 0)
                 {
-                    return StartTime.Add(TimeSpan.FromMinutes(Convert.ToDouble(SprinklerGroup.ActiveMinutesPerSession)));
+                    return StartTime.Add(TimeSpan.FromMinutes(SprinklerGroup.ActiveMinutesPerSession));
                 }
 
                 return StartTime;
