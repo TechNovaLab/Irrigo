@@ -5,7 +5,10 @@ namespace TechNovaLab.Irrigo.SharedKernel.Abstractions.Repositories
 {
     public interface IRepositoryBase
     {
-        ValueTask<TEntity> AddAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default)
+        Task<TEntity> AddAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default)
+            where TEntity : EntityBase;
+
+        Task<TEntity?> FindAsync<TEntity>(object id, CancellationToken cancellationToken = default)
             where TEntity : EntityBase;
 
         IQueryable<TEntity> Get<TEntity>(Expression<Func<TEntity, bool>>? predicateExpression = null)

@@ -20,7 +20,7 @@ namespace TechNovaLab.Irrigo.Application.Features.CropManagement.CreateCropType
 
             if (anyCropType)
             {
-                return Result.Failure<CropTypeResponse>(CropTypeErrors.NameNotUnique);
+                return Result.Failure<CropTypeResponse>(CropErrors.NameNotUnique);
             }
 
             var cropType = new CropType

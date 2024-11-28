@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using TechNovaLab.Irrigo.SharedKernel.Abstractions.Repositories;
 using TechNovaLab.Irrigo.SharedKernel.Core;
 
@@ -9,7 +8,8 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Abstractions
     {
         public DbContextBase Context => context ?? throw new ArgumentNullException(nameof(context));
 
-        public async ValueTask<TEntity> AddAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default) where TEntity : EntityBase
+        public async Task<TEntity> AddAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default) 
+            where TEntity : EntityBase
         {
             var result = await Context
                 .Set<TEntity>()
@@ -18,8 +18,25 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Abstractions
             return result.Entity;
         }
 
-        public IQueryable<TEntity> Get<TEntity>(
-            Expression<Func<TEntity, bool>>? predicateExpression = null) where TEntity : EntityBase
+        public async Task<TEntity?> FindAsync<TEntity>(object id, CancellationToken cancellationToken = default) 
+            where TEntity : EntityBase
+        {
+            if (id == null)
+                throw new ArgumentNullException(nameof(id), "The identifier cannot be null.");
+
+            var idType = id.GetType();
+            if (!idType.IsValueType && idType != typeof(string))
+                throw new ArgumentException("The id must be a value type or string.", nameof(id));
+
+            var result = await Context
+                .Set<TEntity>()
+                .FindAsync([id], cancellationToken);
+
+            return result;
+        }
+
+        public IQueryable<TEntity> Get<TEntity>(Expression<Func<TEntity, bool>>? predicateExpression = null) 
+            where TEntity : EntityBase
         {
             IQueryable<TEntity> result = Context.Set<TEntity>();
 
