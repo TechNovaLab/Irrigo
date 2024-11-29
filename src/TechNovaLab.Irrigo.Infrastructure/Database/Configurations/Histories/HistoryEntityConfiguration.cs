@@ -1,21 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TechNovaLab.Irrigo.Domain.Entities.IrrigationHistories;
+using TechNovaLab.Irrigo.Domain.Entities.Histories;
 using TechNovaLab.Irrigo.Infrastructure.Database.Abstractions;
 
-namespace TechNovaLab.Irrigo.Infrastructure.Database.Configurations.IrrigationHistories
+namespace TechNovaLab.Irrigo.Infrastructure.Database.Configurations.Histories
 {
-    internal class IrrigationHistoryEntityConfiguration : EntityConfiguratorBase<IrrigationHistory>
+    internal class HistoryEntityConfiguration : EntityConfiguratorBase<History>
     {
         public override void Configure(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<IrrigationHistory>(entity =>
+            modelBuilder.Entity<History>(entity =>
             {
-                entity.ToTable("IrrigationHistories");
+                entity.ToTable("Histories");
                 entity.HasKey(pk => pk.Id);
 
                 entity
                     .HasOne(x => x.SprinklerGroup)
-                    .WithMany(x => x.IrrigationHistories)
+                    .WithMany(x => x.Histories)
                     .HasForeignKey(fk => fk.SprinklerGroupId)
                     .OnDelete(DeleteBehavior.Restrict);
 

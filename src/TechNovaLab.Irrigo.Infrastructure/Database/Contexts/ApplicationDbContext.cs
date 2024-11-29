@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TechNovaLab.Irrigo.Application.Abstractions.Data;
 using TechNovaLab.Irrigo.Domain.Entities.Crops;
-using TechNovaLab.Irrigo.Domain.Entities.IrrigationHistories;
+using TechNovaLab.Irrigo.Domain.Entities.Histories;
 using TechNovaLab.Irrigo.Domain.Entities.Planters;
 using TechNovaLab.Irrigo.Domain.Entities.Restrictions;
 using TechNovaLab.Irrigo.Domain.Entities.Schedules;
@@ -16,7 +16,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Contexts
     {
         public DbSet<Crop> Crops { get; set; } = default!;
         public DbSet<CropType> CropTypes { get; set; } = default!;
-        public DbSet<IrrigationHistory> IrrigationHistories { get; set; } = default!;
+        public DbSet<History> Histories { get; set; } = default!;
         public DbSet<Restriction> Restrictions { get; set; } = default!;
         public DbSet<Schedule> Schedules { get; set; } = default!;
         public DbSet<Planter> Planters { get; set; } = default!;
