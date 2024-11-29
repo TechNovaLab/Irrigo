@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
     <VersionPrefix>0.1.1</VersionPrefix>
-    <VersionSuffix>dev</VersionSuffix>
+    <VersionSuffix></VersionSuffix>
     <Company>TechNovaLab</Company>
     <Authors>Luis Rodriguez</Authors>
     <TargetFramework>net9.0</TargetFramework>
