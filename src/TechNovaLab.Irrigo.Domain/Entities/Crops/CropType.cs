@@ -10,7 +10,7 @@ namespace TechNovaLab.Irrigo.Domain.Entities.Crops
         /// <summary>
         /// Amount of water required per day (in liters).
         /// </summary>
-        public int WaterRequiredPerDay { get; set; }
+        public double WaterRequiredPerDay { get; set; }
         public ICollection<Crop> Crops { get; set; } = [];
     }
 }

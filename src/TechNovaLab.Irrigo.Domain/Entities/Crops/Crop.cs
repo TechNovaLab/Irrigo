@@ -13,6 +13,7 @@ namespace TechNovaLab.Irrigo.Domain.Entities.Crops
         public int PlanterId { get; set; }
         public int SprinklerGroupId { get; set; }
         public required string Name { get; set; }
+
         /// <summary>
         /// Number of individual plants or units of this crop type planted in the planter.
         /// </summary>
@@ -29,7 +30,7 @@ namespace TechNovaLab.Irrigo.Domain.Entities.Crops
             {
                 if (CropType != null)
                 {
-                    return (double)CropType.WaterRequiredPerDay * PlantUnits;
+                    return CropType.WaterRequiredPerDay * PlantUnits;
                 }
 
                 return 0D;
