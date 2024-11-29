@@ -3,5 +3,5 @@
     public sealed record CropTypeResponse(
         Guid PublicId,
         string Name,
-        int WaterRequiredPerDay);
+        double WaterRequiredPerDay);
 }

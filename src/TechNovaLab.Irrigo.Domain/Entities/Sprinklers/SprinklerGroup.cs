@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using TechNovaLab.Irrigo.Domain.Entities.Crops;
-using TechNovaLab.Irrigo.Domain.Entities.IrrigationHistories;
+using TechNovaLab.Irrigo.Domain.Entities.Histories;
 using TechNovaLab.Irrigo.Domain.Entities.Schedules;
 using TechNovaLab.Irrigo.SharedKernel.Core;
 
@@ -50,6 +50,6 @@ namespace TechNovaLab.Irrigo.Domain.Entities.Sprinklers
         public ICollection<Crop> Crops { get; set; } = [];
         public ICollection<Sprinkler> Sprinklers { get; set; } = [];
         public ICollection<Schedule> Schedules { get; set; } = [];
-        public ICollection<IrrigationHistory> IrrigationHistories { get; set; } = [];
+        public ICollection<History> Histories { get; set; } = [];
     }
 }

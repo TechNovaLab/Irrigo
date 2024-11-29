@@ -26,7 +26,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Configurations.Sprinklers
                     .OnDelete(DeleteBehavior.Restrict);
 
                 entity
-                    .HasMany(x => x.IrrigationHistories)
+                    .HasMany(x => x.Histories)
                     .WithOne(x => x.SprinklerGroup)
                     .HasForeignKey(fk => fk.SprinklerGroupId)
                     .OnDelete(DeleteBehavior.Restrict);
