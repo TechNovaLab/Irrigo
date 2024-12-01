@@ -7,9 +7,10 @@ namespace TechNovaLab.Irrigo.Api.Configurations
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddPresentation(this IServiceCollection services) =>
+        public static IServiceCollection AddPresentation(this IServiceCollection services, IConfiguration configuration) =>
             services
                 .AddExceptionHandler<GlobalExceptionHandler>()
+                .AddCorsRules(configuration)
                 .AddEndpointsApiExplorer()
                 .AddProblemDetails()
                 .AddEndpoints();
@@ -27,5 +28,11 @@ namespace TechNovaLab.Irrigo.Api.Configurations
 
             return services;
         }
+
+        private static IServiceCollection AddCorsRules(this IServiceCollection services, IConfiguration configuration) =>
+            services.AddCors(options => options
+                .AddDefaultPolicy(builder => builder.WithOrigins(configuration.GetSection("Cors:Origins").Get<string[]>() ?? [])
+                .AllowAnyHeader()
+                .AllowAnyMethod()));
     }
 }
