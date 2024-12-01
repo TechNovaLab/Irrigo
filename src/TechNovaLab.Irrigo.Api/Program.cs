@@ -14,7 +14,7 @@ builder.Host
 builder.Services
     .AddSwaggerGenWithAuth(builder.Configuration)
     .AddApplication()
-    .AddPresentation()
+    .AddPresentation(builder.Configuration)
     .AddInfrastructure(builder.Configuration);
 
 WebApplication app = builder.Build();
@@ -37,5 +37,6 @@ app.UseSerilogRequestLogging();
 app.UseExceptionHandler();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseCors();
 
 await app.RunAsync();
