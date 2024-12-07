@@ -13,9 +13,9 @@ namespace TechNovaLab.Irrigo.Application.Features.UserManagement.Register
     internal sealed class RegisterUserCommandHandler(
         IRepository repository,
         IUnitOfWork unitOfWork,
-        IPasswordHasher passwordHasher) : ICommandHandler<RegisterUserCommand, Guid>
+        IPasswordHasher passwordHasher) : ICommandHandler<RegisterUserCommand, UserResponse>
     {
-        public async Task<Result<Guid>> Handle(RegisterUserCommand command, CancellationToken cancellationToken)
+        public async Task<Result<UserResponse>> Handle(RegisterUserCommand command, CancellationToken cancellationToken)
         {
             var anyUser = await repository
                 .Get<User>()
@@ -23,7 +23,7 @@ namespace TechNovaLab.Irrigo.Application.Features.UserManagement.Register
 
             if (anyUser)
             {
-                return Result.Failure<Guid>(UserErrors.EmailNotUnique);
+                return Result.Failure<UserResponse>(UserErrors.EmailNotUnique);
             }
 
             var user = new User
@@ -41,7 +41,12 @@ namespace TechNovaLab.Irrigo.Application.Features.UserManagement.Register
             await repository.AddAsync(user, cancellationToken);
             await unitOfWork.CompleteAsync(cancellationToken);
 
-            return user.Id;
+            return new UserResponse(
+                user.Id,
+                user.Email,
+                user.FirstName,
+                user.LastName,
+                user.Role);
         }
     }
 }

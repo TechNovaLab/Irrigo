@@ -4,5 +4,5 @@ namespace TechNovaLab.Irrigo.Application.Features.UserManagement.Login
 {
     public sealed record LoginUserCommand(
         string Email, 
-        string Password) : ICommand<string>;
+        string Password) : ICommand<UserResponse>;
 }

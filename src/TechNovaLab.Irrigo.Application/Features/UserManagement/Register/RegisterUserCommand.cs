@@ -6,5 +6,5 @@ namespace TechNovaLab.Irrigo.Application.Features.UserManagement.Register
         string Email, 
         string FirstName, 
         string LastName, 
-        string Password) : ICommand<Guid>;
+        string Password) : ICommand<UserResponse>;
 }
