@@ -20,7 +20,7 @@ namespace TechNovaLab.Irrigo.Api.Endpoints.Users
                     request.LastName,
                     request.Password);
 
-                Result<Guid> result = await sender.Send(command, cancellationToken);
+                Result<UserResponse> result = await sender.Send(command, cancellationToken);
 
                 return result.Match(Results.Ok, CustomResults.Problem);
             })

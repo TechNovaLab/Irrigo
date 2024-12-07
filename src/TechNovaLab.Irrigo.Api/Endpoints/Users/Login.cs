@@ -16,7 +16,7 @@ namespace TechNovaLab.Irrigo.Api.Endpoints.Users
             {
                 var command = new LoginUserCommand(request.Email, request.Password);
 
-                Result<string> result = await sender.Send(command, cancellationToken);
+                Result<UserResponse> result = await sender.Send(command, cancellationToken);
 
                 return result.Match(Results.Ok, CustomResults.Problem);
             })

@@ -11,9 +11,9 @@ namespace TechNovaLab.Irrigo.Application.Features.UserManagement.Login
     internal sealed class LoginUserCommandHandler(
         IRepository repository, 
         IPasswordHasher passwordHasher, 
-        ITokenProvider tokenProvider) : ICommandHandler<LoginUserCommand, string>
+        ITokenProvider tokenProvider) : ICommandHandler<LoginUserCommand, UserResponse>
     {
-        public async Task<Result<string>> Handle(LoginUserCommand command, CancellationToken cancellationToken)
+        public async Task<Result<UserResponse>> Handle(LoginUserCommand command, CancellationToken cancellationToken)
         {
             User? user = await repository
                 .Get<User>(x => x.Email == command.Email)
@@ -22,19 +22,25 @@ namespace TechNovaLab.Irrigo.Application.Features.UserManagement.Login
 
             if (user is null)
             {
-                return Result.Failure<string>(UserErrors.NotFoundByEmail);
+                return Result.Failure<UserResponse>(UserErrors.NotFoundByEmail);
             }
 
             bool verified = passwordHasher.Verify(command.Password, user.PasswordHash);
 
             if (!verified)
             {
-                return Result.Failure<string>(UserErrors.NotFoundByEmail);
+                return Result.Failure<UserResponse>(UserErrors.NotFoundByEmail);
             }
 
             string token = tokenProvider.Create(user);
 
-            return token;
+            return new UserResponse(
+                user.Id, 
+                user.Email,
+                user.FirstName,
+                user.LastName,
+                user.Role,
+                token);
         }
     }
 }
