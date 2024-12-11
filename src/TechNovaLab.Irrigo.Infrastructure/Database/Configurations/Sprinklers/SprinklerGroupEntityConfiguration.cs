@@ -4,7 +4,7 @@ using TechNovaLab.Irrigo.Infrastructure.Database.Abstractions;
 
 namespace TechNovaLab.Irrigo.Infrastructure.Database.Configurations.Sprinklers
 {
-    internal class SprinklerGroupEntityConfigurator : EntityConfiguratorBase<SprinklerGroup>
+    internal class SprinklerGroupEntityConfiguration : EntityConfiguratorBase<SprinklerGroup>
     {
         public override void Configure(ModelBuilder modelBuilder)
         {

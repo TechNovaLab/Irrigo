@@ -7,13 +7,15 @@ using TechNovaLab.Irrigo.SharedKernel.Core;
 
 namespace TechNovaLab.Irrigo.Api.Endpoints.Sprinklers
 {
+    public sealed record Request(string Name);
+
     internal sealed class CreateSprinklerGroup : IEndpoint
     {
         public void MapEndpoint(IEndpointRouteBuilder app)
         {
-            app.MapPost("sprinklers/create-group", async (ISender sender, CancellationToken cancellationToken) =>
+            app.MapPost("sprinklers/create-group", async (Request request, ISender sender, CancellationToken cancellationToken) =>
             {
-                var command = new CreateSprinklerGroupCommand();
+                var command = new CreateSprinklerGroupCommand(request.Name);
                 Result<SprinklerGroupResponse> result = await sender.Send(command, cancellationToken);
 
                 return result.Match(Results.Ok, CustomResults.Problem);

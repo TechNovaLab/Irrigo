@@ -15,6 +15,7 @@ namespace TechNovaLab.Irrigo.Application.Features.SprinklerManagement.CreateSpri
             var group = new SprinklerGroup
             {
                 PublicId = Guid.NewGuid(),
+                Name = command.Name,
                 State = State.Inactive,
             };
 
@@ -23,6 +24,7 @@ namespace TechNovaLab.Irrigo.Application.Features.SprinklerManagement.CreateSpri
 
             return new SprinklerGroupResponse(
                 group.PublicId,
+                group.Name,
                 group.State,
                 group.WaterConsumptionPerSession,
                 group.ActiveMinutesPerSession);

@@ -10,6 +10,7 @@ namespace TechNovaLab.Irrigo.Domain.Entities.Sprinklers
     {
         public int Id { get; set; }
         public Guid PublicId { get; set; }
+        public required string Name { get; set; }
         public State State { get; set; }
 
         [NotMapped]

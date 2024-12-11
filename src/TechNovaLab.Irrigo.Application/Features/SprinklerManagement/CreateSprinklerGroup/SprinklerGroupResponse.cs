@@ -4,6 +4,7 @@ namespace TechNovaLab.Irrigo.Application.Features.SprinklerManagement.CreateSpri
 {
     public sealed record SprinklerGroupResponse(
         Guid PublicId,
+        string Name,
         State State,
         double WaterConsumptionPerSession,
         double ActiveMinutesPerSession);
