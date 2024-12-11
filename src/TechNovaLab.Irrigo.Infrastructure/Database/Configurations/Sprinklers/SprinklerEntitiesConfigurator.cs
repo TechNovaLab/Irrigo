@@ -7,7 +7,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Configurations.Sprinklers
         internal static void ApplySprinklersModelConfiguration(this ModelBuilder modelBuilder)
         {
             new SprinklerEntityConfiguration().Configure(modelBuilder);
-            new SprinklerGroupEntityConfigurator().Configure(modelBuilder);
+            new SprinklerGroupEntityConfiguration().Configure(modelBuilder);
         }
     }
 }
