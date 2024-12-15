@@ -33,6 +33,17 @@ namespace TechNovaLab.Irrigo.Api.Configurations
             services.AddCors(options => options
                 .AddDefaultPolicy(builder => builder.WithOrigins(configuration.GetSection("Cors:Origins").Get<string[]>() ?? [])
                 .AllowAnyHeader()
-                .AllowAnyMethod()));
+                .AllowAnyMethod()
+                .AllowCredentials()
+                .WithExposedHeaders("Access-Control-Allow-Origin")));
+
+        //services.AddCors(options => options
+        //   .AddDefaultPolicy(builder => builder.WithOrigins(configuration.GetSection("Cors:Origins").Get<string[]>() ?? [])
+        //   .AllowAnyHeader()
+        //   .AllowAnyMethod()
+        //   .AllowCredentials()
+        //   .WithExposedHeaders("WWW-Authenticate", "Access-Control-Allow-Origin", "Content-type", "Authorization")
+        //   .SetPreflightMaxAge(TimeSpan.FromMinutes(10))));
+
     }
 }

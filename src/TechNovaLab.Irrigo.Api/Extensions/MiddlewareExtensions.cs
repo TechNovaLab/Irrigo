@@ -4,11 +4,10 @@ namespace TechNovaLab.Irrigo.Api.Extensions
 {
     public static class MiddlewareExtensions
     {
-        public static IApplicationBuilder UseRequestContextLogging(this IApplicationBuilder app)
-        {
+        public static IApplicationBuilder UseRequestContextLogging(this IApplicationBuilder app) =>       
             app.UseMiddleware<RequestContextLoggingMiddleware>();
 
-            return app;
-        }
+        public static IApplicationBuilder UseRequestAuthorizationMiddleware(this IApplicationBuilder app) =>
+            app.UseMiddleware<RequestAuthorizationMiddleware>();
     }
 }
