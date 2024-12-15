@@ -33,6 +33,7 @@ app.MapHealthChecks("health", new HealthCheckOptions
 });
 
 app.UseRequestContextLogging();
+app.UseRequestAuthorizationMiddleware();
 app.UseSerilogRequestLogging();
 app.UseExceptionHandler();
 app.UseAuthentication();
