@@ -2,6 +2,7 @@
 using TechNovaLab.Irrigo.Api.Extensions;
 using TechNovaLab.Irrigo.Api.Infrastructure;
 using TechNovaLab.Irrigo.Application.Features.CropManagement.CreateCropType;
+using TechNovaLab.Irrigo.Domain.Entities.Users;
 using TechNovaLab.Irrigo.SharedKernel.Core;
 
 namespace TechNovaLab.Irrigo.Api.Endpoints.Crops
@@ -21,7 +22,10 @@ namespace TechNovaLab.Irrigo.Api.Endpoints.Crops
                 Result<CropTypeResponse> result = await sender.Send(command, cancellationToken);
 
                 return result.Match(Results.Ok, CustomResults.Problem);
-            });
+            })
+            .HasRole(Role.Member)
+            .HasPermission("user:access")
+            .WithTags(Tags.Crops);
         }
     }
 }

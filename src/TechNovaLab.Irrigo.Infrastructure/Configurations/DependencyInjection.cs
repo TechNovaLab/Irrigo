@@ -69,6 +69,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Configurations
                     option.RequireHttpsMetadata = false;
                     option.TokenValidationParameters = new TokenValidationParameters
                     {
+                        ValidateLifetime = true,
                         IssuerSigningKey = signingKey,
                         ValidIssuer = configuration["Jwt:Issuer"],
                         ValidAudience = configuration["Jwt:Audience"],
