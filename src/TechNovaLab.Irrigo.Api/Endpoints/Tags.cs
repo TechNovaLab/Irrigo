@@ -5,5 +5,6 @@
         public const string HealthChecks = "HealthChecks";
         public const string Sprinklers = "Sprinklers";
         public const string Users = "Users";
+        public const string Crops = "Crops";
     }
 }
