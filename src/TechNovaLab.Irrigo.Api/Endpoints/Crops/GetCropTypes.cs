@@ -15,7 +15,7 @@ namespace TechNovaLab.Irrigo.Api.Endpoints.Crops
             {
                 var query = new GetCropTypesQuery();
 
-                Result<IEnumerable<CropTypesResponse>> result = await sender.Send(query, cancaellationToken);
+                Result<IEnumerable<CropTypeResponse>> result = await sender.Send(query, cancaellationToken);
 
                 return result.Match(Results.Ok, CustomResults.Problem);
             })
