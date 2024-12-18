@@ -2,6 +2,6 @@
 
 namespace TechNovaLab.Irrigo.Application.Features.CropManagement.GetCropTypes
 {
-    public sealed record GetCropTypesQuery: IQuery<IEnumerable<CropTypesResponse>>;
+    public sealed record GetCropTypesQuery: IQuery<IEnumerable<CropTypeResponse>>;
 
 }

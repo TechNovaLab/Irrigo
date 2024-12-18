@@ -6,5 +6,6 @@
         public const string Sprinklers = "Sprinklers";
         public const string Users = "Users";
         public const string Crops = "Crops";
+        public const string Planters = "Planters";
     }
 }

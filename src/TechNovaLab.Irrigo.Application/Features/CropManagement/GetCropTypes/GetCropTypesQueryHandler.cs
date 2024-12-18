@@ -7,13 +7,13 @@ using TechNovaLab.Irrigo.SharedKernel.Core;
 namespace TechNovaLab.Irrigo.Application.Features.CropManagement.GetCropTypes
 {
     internal sealed class GetCropTypesQueryHandler(
-        IRepository repository) : IQueryHandler<GetCropTypesQuery, IEnumerable<CropTypesResponse>>
+        IRepository repository) : IQueryHandler<GetCropTypesQuery, IEnumerable<CropTypeResponse>>
     {
-        public async Task<Result<IEnumerable<CropTypesResponse>>> Handle(GetCropTypesQuery request, CancellationToken cancellationToken)
+        public async Task<Result<IEnumerable<CropTypeResponse>>> Handle(GetCropTypesQuery query, CancellationToken cancellationToken)
         {
-            List<CropTypesResponse> cropTypes = await repository
+            List<CropTypeResponse> cropTypes = await repository
                 .Get<CropType>()
-                .Select(x => new CropTypesResponse
+                .Select(x => new CropTypeResponse
                 {
                     PublicId = x.PublicId,
                     Name = x.Name,

@@ -2,6 +2,7 @@
 using TechNovaLab.Irrigo.Api.Extensions;
 using TechNovaLab.Irrigo.Api.Infrastructure;
 using TechNovaLab.Irrigo.Application.Features.PlanterManagement.CreatePlanter;
+using TechNovaLab.Irrigo.Domain.Entities.Users;
 using TechNovaLab.Irrigo.SharedKernel.Core;
 
 namespace TechNovaLab.Irrigo.Api.Endpoints.Planters
@@ -21,7 +22,10 @@ namespace TechNovaLab.Irrigo.Api.Endpoints.Planters
                 Result<PlanterResponse> result = await sender.Send(command, cancellationToken);
 
                 return result.Match(Results.Ok, CustomResults.Problem);
-            });
+            })
+            .HasRole(Role.Member)
+            .HasPermission("users:access")
+            .WithTags(Tags.Planters);
         }
     }
 }

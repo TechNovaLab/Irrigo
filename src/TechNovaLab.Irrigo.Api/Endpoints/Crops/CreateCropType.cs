@@ -24,7 +24,7 @@ namespace TechNovaLab.Irrigo.Api.Endpoints.Crops
                 return result.Match(Results.Ok, CustomResults.Problem);
             })
             .HasRole(Role.Member)
-            .HasPermission("user:access")
+            .HasPermission("users:access")
             .WithTags(Tags.Crops);
         }
     }
