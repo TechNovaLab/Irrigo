@@ -4,6 +4,7 @@ namespace TechNovaLab.Irrigo.Application.Features.SprinklerManagement.GetSprinkl
 {
     public sealed record SprinklerGroupResponse
     {
+        public int Id { get; init; }
         public Guid PublicId { get; init; }
         public string Name { get; init; } = default!;
         public State State { get; init; }

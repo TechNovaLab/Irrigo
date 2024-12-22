@@ -23,6 +23,7 @@ namespace TechNovaLab.Irrigo.Application.Features.SprinklerManagement.CreateSpri
             await unitOfWork.CompleteAsync(cancellationToken);
 
             return new SprinklerGroupResponse(
+                group.Id,
                 group.PublicId,
                 group.Name,
                 group.State,

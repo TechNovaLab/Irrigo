@@ -15,6 +15,7 @@ namespace TechNovaLab.Irrigo.Application.Features.PlanterManagement.GetPlanters
                 .Get<Planter>()
                 .Select(x => new PlanterResponse
                 {
+                    Id = x.Id,
                     PublicId = x.PublicId,
                     Name = x.Name,
                     Description = x.Description,
