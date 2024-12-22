@@ -34,6 +34,7 @@ namespace TechNovaLab.Irrigo.Application.Features.PlanterManagement.CreatePlante
             await unitOfWork.CompleteAsync(cancellationToken);
 
             return new PlanterResponse(
+                planter.Id,
                 planter.PublicId,
                 planter.Name,
                 planter.Description);

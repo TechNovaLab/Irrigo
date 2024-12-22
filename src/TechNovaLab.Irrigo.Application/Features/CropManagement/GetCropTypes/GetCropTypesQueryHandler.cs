@@ -15,6 +15,7 @@ namespace TechNovaLab.Irrigo.Application.Features.CropManagement.GetCropTypes
                 .Get<CropType>()
                 .Select(x => new CropTypeResponse
                 {
+                    Id = x.Id,
                     PublicId = x.PublicId,
                     Name = x.Name,
                     WaterRequiredPerDay = x.WaterRequiredPerDay,

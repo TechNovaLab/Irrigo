@@ -44,6 +44,7 @@ namespace TechNovaLab.Irrigo.Application.Features.CropManagement.CreateCrop
             await unitOfWork.CompleteAsync(cancellationToken);
 
             return new CropResponse(
+                crop.Id,
                 crop.PublicId,
                 crop.Name,
                 crop.PlantUnits,

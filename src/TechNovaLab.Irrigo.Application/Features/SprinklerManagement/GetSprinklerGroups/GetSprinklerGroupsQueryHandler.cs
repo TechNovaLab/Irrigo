@@ -15,6 +15,7 @@ namespace TechNovaLab.Irrigo.Application.Features.SprinklerManagement.GetSprinkl
                 .Get<SprinklerGroup>()
                 .Select(x => new SprinklerGroupResponse
                 {
+                    Id = x.Id,
                     PublicId = x.PublicId,
                     Name = x.Name,
                     State = x.State,

@@ -1,6 +1,7 @@
 ﻿namespace TechNovaLab.Irrigo.Application.Features.CropManagement.CreateCrop
 {
     public sealed record CropResponse(
+        int Id,
         Guid PublicId,
         string Name,
         int PlantUnits,

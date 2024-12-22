@@ -34,6 +34,7 @@ namespace TechNovaLab.Irrigo.Application.Features.CropManagement.CreateCropType
             await unitOfWork.CompleteAsync(cancellationToken);
 
             return new CropTypeResponse(
+                cropType.Id,
                 cropType.PublicId,
                 cropType.Name,
                 cropType.WaterRequiredPerDay);
