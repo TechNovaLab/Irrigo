@@ -20,7 +20,7 @@ namespace TechNovaLab.Irrigo.Api.Endpoints.Sprinklers
 
                 return result.Match(Results.Ok, CustomResults.Problem);
             })
-            .HasRole(Role.Contributor)
+            .HasRole(Role.Member)
             .HasPermission("users:access")
             .WithTags(Tags.Sprinklers);
         }
