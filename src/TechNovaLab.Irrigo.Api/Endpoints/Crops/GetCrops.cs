@@ -1,21 +1,21 @@
 ﻿using MediatR;
 using TechNovaLab.Irrigo.Api.Extensions;
 using TechNovaLab.Irrigo.Api.Infrastructure;
-using TechNovaLab.Irrigo.Application.Features.CropManagement.GetCropTypes;
+using TechNovaLab.Irrigo.Application.Features.CropManagement.GetCrops;
 using TechNovaLab.Irrigo.Domain.Entities.Users;
 using TechNovaLab.Irrigo.SharedKernel.Core;
 
 namespace TechNovaLab.Irrigo.Api.Endpoints.Crops
 {
-    internal sealed class GetCropTypes : IEndpoint
+    internal sealed class GetCrops : IEndpoint
     {
         public void MapEndpoint(IEndpointRouteBuilder app)
         {
-            app.MapGet("crops/crop-types", async (ISender sender, CancellationToken cancaellationToken) =>
+            app.MapGet("crops", async (ISender sender, CancellationToken cancellationToken) =>
             {
-                var query = new GetCropTypesQuery();
+                var query = new GetCropsQuery();
 
-                Result<IEnumerable<CropTypeResponse>> result = await sender.Send(query, cancaellationToken);
+                Result<IEnumerable<CropResponse>> result = await sender.Send(query, cancellationToken);
 
                 return result.Match(Results.Ok, CustomResults.Problem);
             })
