@@ -2,5 +2,5 @@
 
 namespace TechNovaLab.Irrigo.Domain.Repositories
 {
-    public interface IRepository : IRepositoryBase; //<IDatabaseContext>;
+    public interface IRepository : IRepositoryBase;
 }
