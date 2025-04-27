@@ -13,5 +13,7 @@ namespace TechNovaLab.Irrigo.SharedKernel.Abstractions.Repositories
 
         IQueryable<TEntity> Get<TEntity>(Expression<Func<TEntity, bool>>? predicateExpression = null)
             where TEntity : EntityBase;
+
+        void Remove<TEntity>(TEntity entity) where TEntity : EntityBase;
     }
 }

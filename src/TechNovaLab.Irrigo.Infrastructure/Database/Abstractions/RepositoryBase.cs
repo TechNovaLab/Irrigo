@@ -47,5 +47,9 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Abstractions
 
             return result;
         }
+
+        public void Remove<TEntity>(TEntity entity) where TEntity : EntityBase => Context
+            .Set<TEntity>()
+            .Remove(entity);
     }
 }
