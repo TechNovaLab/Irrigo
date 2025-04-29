@@ -15,5 +15,7 @@ namespace TechNovaLab.Irrigo.SharedKernel.Abstractions.Repositories
             where TEntity : EntityBase;
 
         void Remove<TEntity>(TEntity entity) where TEntity : EntityBase;
+
+        TEntity Update<TEntity>(TEntity entity) where TEntity : EntityBase;
     }
 }
