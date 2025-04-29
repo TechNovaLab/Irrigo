@@ -8,7 +8,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Abstractions
     {
         public DbContextBase Context => context ?? throw new ArgumentNullException(nameof(context));
 
-        public async Task<TEntity> AddAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default) 
+        public async Task<TEntity> AddAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default)
             where TEntity : EntityBase
         {
             var result = await Context
@@ -18,7 +18,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Abstractions
             return result.Entity;
         }
 
-        public async Task<TEntity?> FindAsync<TEntity>(object id, CancellationToken cancellationToken = default) 
+        public async Task<TEntity?> FindAsync<TEntity>(object id, CancellationToken cancellationToken = default)
             where TEntity : EntityBase
         {
             if (id == null)
@@ -35,7 +35,7 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Abstractions
             return result;
         }
 
-        public IQueryable<TEntity> Get<TEntity>(Expression<Func<TEntity, bool>>? predicateExpression = null) 
+        public IQueryable<TEntity> Get<TEntity>(Expression<Func<TEntity, bool>>? predicateExpression = null)
             where TEntity : EntityBase
         {
             IQueryable<TEntity> result = Context.Set<TEntity>();
@@ -51,5 +51,14 @@ namespace TechNovaLab.Irrigo.Infrastructure.Database.Abstractions
         public void Remove<TEntity>(TEntity entity) where TEntity : EntityBase => Context
             .Set<TEntity>()
             .Remove(entity);
+
+        public TEntity Update<TEntity>(TEntity entity) where TEntity : EntityBase
+        {
+            ArgumentNullException.ThrowIfNull(entity);
+
+            var result = Context.Set<TEntity>().Update(entity);
+
+            return result.Entity;
+        }
     }
 }
